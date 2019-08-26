@@ -9,5 +9,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
+    protected $is_admin = true;
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
