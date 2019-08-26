@@ -15,12 +15,11 @@ class SurveysTableSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * @param \Faker\Generator $faker
      */
-    public function run(Faker $faker)
+    public function run()
     {
         
-        for ( $i = 0, $length = count($this->front_end_types); $i <= $length-1; $i++ ) {
+        for ( $i = 0, $length = count($this->front_end_types); $i <= $length - 1; $i++ ) {
             DB::table('surveys')->insert([
                 'name' => $this->front_end_types[$i],
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
