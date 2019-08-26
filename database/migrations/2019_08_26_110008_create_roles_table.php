@@ -15,11 +15,11 @@ class CreateRolesTable extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('role',100)->index();
+            $table->string('role', 100)->index();
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

@@ -14,9 +14,10 @@ class AddColumnsUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->index()->after('name');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -25,7 +26,7 @@ class AddColumnsUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('username');
         });
     }
 }
