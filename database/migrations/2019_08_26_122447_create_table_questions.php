@@ -14,8 +14,26 @@ class CreateTableQuestions extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
+            $table->bigInteger('survey_id');
+            $table->bigInteger('answer_type_id');
+            $table->bigInteger('answer_type_meta_data_id');
+            $table->string('question')->index();
+            $table->text('description');
+            $table->boolean('is_required');
+            $table->boolean('is_answered');
+            $table->boolean('is_multiple_answer');
+            $table->string('input_name')->unique();
+            $table->string('input_id')->unique();
+            $table->string('input_placeholder');
+            $table->string('input_label_value');
             $table->timestamps();
+    
+            $table->foreign('survey_id')->references('id')->on('surveys');
+            $table->foreign('answer_type_id')->references('id')->on('answer_types');
+            $table->foreign('answer_type_meta_data_id')->references('id')->on('answer_type_meta_datas');
+            
         });
     }
 
