@@ -15,7 +15,7 @@ class CreateTableAnswerTypes extends Migration
     {
         Schema::create('answer_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type')->comment('front');
+            $table->string('type')->comment('front-end input types comes here');
             $table->timestamps();
         });
     }

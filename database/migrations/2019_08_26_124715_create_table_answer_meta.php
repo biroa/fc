@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableAnswerTypeMetaDatas extends Migration
+class CreateTableAnswerMeta extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableAnswerTypeMetaDatas extends Migration
      */
     public function up()
     {
-        Schema::create('answer_type_meta_datas', function (Blueprint $table) {
+        Schema::create('answer_meta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('question_id');
             $table->string('meta_data')->nullable();
@@ -29,6 +29,6 @@ class CreateTableAnswerTypeMetaDatas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_type_meta_datas');
+        Schema::dropIfExists('answer_meta');
     }
 }

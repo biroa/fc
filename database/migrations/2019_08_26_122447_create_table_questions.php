@@ -16,9 +16,9 @@ class CreateTableQuestions extends Migration
         Schema::create('questions', function (Blueprint $table) {
             
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('survey_id');
-            $table->unsignedBigInteger('answer_type_id');
-            $table->unsignedBigInteger('answer_type_meta_data_id');
+            $table->bigInteger('survey_id');
+            $table->bigInteger('answer_type_id');
+            $table->bigInteger('answer_meta_id');
             $table->string('question')->index();
             $table->text('description');
             $table->boolean('is_required');
@@ -30,9 +30,9 @@ class CreateTableQuestions extends Migration
             $table->string('input_label_value');
             $table->timestamps();
     
-            $table->foreign('survey_id')->references('id')->on('surveys');
-            $table->foreign('answer_type_id')->references('id')->on('answer_types');
-            $table->foreign('answer_type_meta_data_id')->references('id')->on('answer_type_meta_datas');
+            //$table->foreign('survey_id')->references('id')->on('surveys');
+            //$table->foreign('answer_type_id')->references('id')->on('answer_types');
+            //$table->foreign('answer_meta_id')->references('id')->on('answer_meta');
             
         });
     }
