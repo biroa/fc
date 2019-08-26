@@ -11,6 +11,6 @@ class SurveyController extends Controller
     // Listing Surveys
     public function show()
     {
-        return view('admin.dashboard', [ 'is_admin' => $this->is_admin ]);
+        return view('admin.survey', [ 'is_admin' => $this->is_admin ]);
     }
 }

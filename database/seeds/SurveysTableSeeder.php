@@ -14,7 +14,6 @@ class SurveysTableSeeder extends Seeder
     
     /**
      * Run the database seeds.
-     *
      */
     public function run()
     {
