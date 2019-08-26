@@ -16,9 +16,9 @@ class CreateTableQuestions extends Migration
         Schema::create('questions', function (Blueprint $table) {
             
             $table->bigIncrements('id');
-            $table->bigInteger('survey_id');
-            $table->bigInteger('answer_type_id');
-            $table->bigInteger('answer_type_meta_data_id');
+            $table->unsignedBigInteger('survey_id');
+            $table->unsignedBigInteger('answer_type_id');
+            $table->unsignedBigInteger('answer_type_meta_data_id');
             $table->string('question')->index();
             $table->text('description');
             $table->boolean('is_required');
