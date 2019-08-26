@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableAnswerMeta extends Migration
+class CreateTableSurveyResults extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTableAnswerMeta extends Migration
      */
     public function up()
     {
-        Schema::create('answer_meta', function (Blueprint $table) {
+        Schema::create('survey_results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('question_id');
-            $table->string('meta_data')->nullable();
-            $table->string('is_default')->comment('default value in case of a select-box');
+            $table->unsignedBigInteger('survey_id');
+            $table->json('survey_log');
             $table->timestamps();
+            $table->foreign('survey_id')->references('id')->on('surveys');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateTableAnswerMeta extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answer_meta');
+        Schema::dropIfExists('survey_results');
     }
 }
